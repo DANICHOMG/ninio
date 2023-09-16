@@ -1,27 +1,22 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using static System.Net.Mime.MediaTypeNames;
-
-Console.WriteLine("Hello, type first message: ");
-string first = Console.ReadLine();
-Console.WriteLine("Hello, type second message: ");
-string second = Console.ReadLine();
-
-bool oi = true;
-
-while (oi)
+﻿static bool compare(string a, string b)
 {
-    if (string.Compare(first, second) == 0)
+    if(a.Length != b.Length)
     {
-        Console.WriteLine("Similar!");
-        oi = false;
+        return false;
+    }
+    if(a == null || b == null)
+    {
+        return false;
+    }
+    for(int i = 0; i < a.Length; i++)
+    {
+        if (a[i] != b[i]) { 
 
+             return false;
+        }
     }
-    else
-    {
-        Console.WriteLine("No, they are not similar");
-        break;
-    }
+
+    return true;
 }
 
 //Друга частина 
@@ -91,7 +86,4 @@ for (int i = 0; i < resultIndex; i++)
 {
     Console.Write(result[i] + " ");
 }
-
-
-
 
