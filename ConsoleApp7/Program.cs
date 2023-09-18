@@ -1,31 +1,34 @@
-﻿static bool compare(string a, string b)
+﻿
+static void FirstTask()
 {
-    if(a.Length != b.Length)
+    static bool compare(string a, string b)
     {
-        return false;
-    }
-    if(a == null || b == null)
-    {
-        return false;
-    }
-    for(int i = 0; i < a.Length; i++)
-    {
-        if (a[i] != b[i]) { 
-
-             return false;
+        if (a.Length != b.Length)
+        {
+            return false;
         }
-    }
+        if (a == null || b == null)
+        {
+            return false;
+        }
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] != b[i])
+            {
 
-    return true;
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
 
 //Друга частина 
-
-Console.WriteLine("Write you sentence: ");
-string aaaa = Console.ReadLine();
-Analyze(aaaa);
-static void Analyze(string aaaa)
+static void Analyze()
 {
+    Console.WriteLine("Write you sentence: ");
+    string aaaa = Console.ReadLine();
 
     int letters = 0;
     int digits = 0;
@@ -54,36 +57,43 @@ static void Analyze(string aaaa)
 
 //Третя частина
 
-Console.WriteLine("Write you word: ");
-string abaa = Console.ReadLine();
-char[] characters = abaa.ToCharArray();
-Array.Sort(characters);
-string sortedString = new string(characters);
-Console.WriteLine(sortedString);
+static void ThirdTask()
+{
+
+    Console.WriteLine("Write you word: ");
+    string abaa = Console.ReadLine();
+    char[] characters = abaa.ToCharArray();
+    Array.Sort(characters);
+    string sortedString = new string(characters);
+    Console.WriteLine(sortedString);
+}
 
 //Четверта частина
-Console.WriteLine("Введите текст:");
-string text = Console.ReadLine();
 
-char[] result = new char[text.Length];
-int resultIndex = 0;
-
-for (int i = 0; i < text.Length - 1; i++)
+static void FourTask()
 {
-    for (int j = i + 1; j < text.Length; j++)
+    Console.WriteLine("Введите текст:");
+    string text = Console.ReadLine();
+
+    char[] result = new char[text.Length];
+    int resultIndex = 0;
+
+    for (int i = 0; i < text.Length - 1; i++)
     {
-        if (text[i] == text[j])
+        for (int j = i + 1; j < text.Length; j++)
         {
-            result[resultIndex] = text[i];
-            resultIndex++;
+            if (text[i] == text[j])
+            {
+                result[resultIndex] = text[i];
+                resultIndex++;
+            }
         }
     }
+
+
+    Console.WriteLine("Похожие символы:");
+    for (int i = 0; i < resultIndex; i++)
+    {
+        Console.Write(result[i] + " ");
+    }
 }
-
-
-Console.WriteLine("Похожие символы:");
-for (int i = 0; i < resultIndex; i++)
-{
-    Console.Write(result[i] + " ");
-}
-
